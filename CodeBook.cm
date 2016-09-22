@@ -1,0 +1,136 @@
+#Procedure:
+
+##1.Y files 
+
+1.a For each Y file, read as data.frame using read.table 
+
+1.b rename each number according to the activity name in the activit_labels.txt file
+
+##2.X files 
+
+2.a Read as data.frame using read.table and features vector as column names 
+
+2.b add the processed Y file as new column called 'activity' 
+
+2.c add a new column called 'set' indication if the data comes from train or test set
+
+##3. Row bind X_test processed file with X_train processed file The data set contains 10299 rows and 564 variables
+##4. Save this data.frame as X_only_complete set
+
+##5.Inertial Signals files 5.a For each Inertial Signal file: 
+5.a.1 read the test file as data.frame using read.table renaming columns as the original signal name plus meas.1 to meas.128 
+5.a.2 Proceed as as 5.a.1 with the train file 5.a.3 row bind test and train file 
+
+##6.a Add all the Inertial Signals files as new columns. The final dataset contains 1029 rows and 1152 columns (9 signals with 128 measurements each)
+
+##7. Add the complete Inertial Signal file as new columns to the X_only_complete set processed in step 3 The final data set contains 10299 rows and 1716 variables
+##8. Save this data set as "complete set"
+
+##Summary File 
+##9.On the "complete set" data set (step 7) select activity, subject and the variables that contain "mean" or "std" in the name, 79 variables are selected 9.b Group by activity and subject 9.c summarize all varaibles with the mean function
+
+
+#Summary File variables:
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
+
+These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
+
+Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
+
+Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). 
+
+Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+
+The Sumary file contain the following variables averaged by each activity and subject:
+
+activity : WALKING,WALKING_UPSTAIRS,WALKING_DOWNSTAIRS,SITTING,STANDING,LAYING
+subject : integer 1 to 30 with the subject identifier
+tBodyAcc.mean...X : average measurement for the activity and subject
+tBodyAcc.mean...Y :average measurement for the activity and subject
+tBodyAcc.mean...Z :average measurement for the activity and subject
+tBodyAcc.std...X :average measurement for the activity and subject
+tBodyAcc.std...Y :average measurement for the activity and subject
+tBodyAcc.std...Z :average measurement for the activity and subject
+tGravityAcc.mean...X :average measurement for the activity and subject
+tGravityAcc.mean...Y :average measurement for the activity and subject
+tGravityAcc.mean...Z :average measurement for the activity and subject
+tGravityAcc.std...X :average measurement for the activity and subject
+tGravityAcc.std...Y :average measurement for the activity and subject
+tGravityAcc.std...Z :average measurement for the activity and subject
+tBodyAccJerk.mean...X :average measurement for the activity and subject
+tBodyAccJerk.mean...Y :average measurement for the activity and subject
+tBodyAccJerk.mean...Z :average measurement for the activity and subject
+tBodyAccJerk.std...X :average measurement for the activity and subject
+tBodyAccJerk.std...Y :average measurement for the activity and subject
+tBodyAccJerk.std...Z :average measurement for the activity and subject
+tBodyGyro.mean...X :average measurement for the activity and subject
+tBodyGyro.mean...Y :average measurement for the activity and subject
+tBodyGyro.mean...Z :average measurement for the activity and subject
+tBodyGyro.std...X :average measurement for the activity and subject
+tBodyGyro.std...Y :average measurement for the activity and subject
+tBodyGyro.std...Z :average measurement for the activity and subject
+tBodyGyroJerk.mean...X :average measurement for the activity and subject
+tBodyGyroJerk.mean...Y :average measurement for the activity and subject
+tBodyGyroJerk.mean...Z :average measurement for the activity and subject
+tBodyGyroJerk.std...X :average measurement for the activity and subject
+tBodyGyroJerk.std...Y :average measurement for the activity and subject
+tBodyGyroJerk.std...Z :average measurement for the activity and subject
+tBodyAccMag.mean.. :average measurement for the activity and subject
+tBodyAccMag.std.. :average measurement for the activity and subject
+tGravityAccMag.mean.. :average measurement for the activity and subject
+tGravityAccMag.std.. :average measurement for the activity and subject
+tBodyAccJerkMag.mean.. :average measurement for the activity and subject
+tBodyAccJerkMag.std.. :average measurement for the activity and subject
+tBodyGyroMag.mean.. :average measurement for the activity and subject
+tBodyGyroMag.std.. :average measurement for the activity and subject
+tBodyGyroJerkMag.mean.. :average measurement for the activity and subject
+tBodyGyroJerkMag.std.. :average measurement for the activity and subject
+fBodyAcc.mean...X :average measurement for the activity and subject
+fBodyAcc.mean...Y :average measurement for the activity and subject
+fBodyAcc.mean...Z :average measurement for the activity and subject
+fBodyAcc.std...X :average measurement for the activity and subject
+fBodyAcc.std...Y :average measurement for the activity and subject
+fBodyAcc.std...Z :average measurement for the activity and subject
+fBodyAcc.meanFreq...X :average measurement for the activity and subject
+fBodyAcc.meanFreq...Y :average measurement for the activity and subject
+fBodyAcc.meanFreq...Z :average measurement for the activity and subject
+fBodyAccJerk.mean...X :average measurement for the activity and subject
+fBodyAccJerk.mean...Y :average measurement for the activity and subject
+fBodyAccJerk.mean...Z :average measurement for the activity and subject
+fBodyAccJerk.std...X :average measurement for the activity and subject
+fBodyAccJerk.std...Y :average measurement for the activity and subject
+fBodyAccJerk.std...Z :average measurement for the activity and subject
+fBodyAccJerk.meanFreq...X :average measurement for the activity and subject
+fBodyAccJerk.meanFreq...Y :average measurement for the activity and subject
+fBodyAccJerk.meanFreq...Z :average measurement for the activity and subject
+fBodyGyro.mean...X :average measurement for the activity and subject
+fBodyGyro.mean...Y :average measurement for the activity and subject
+fBodyGyro.mean...Z :average measurement for the activity and subject
+fBodyGyro.std...X :average measurement for the activity and subject
+fBodyGyro.std...Y :average measurement for the activity and subject
+fBodyGyro.std...Z :average measurement for the activity and subject
+fBodyGyro.meanFreq...X :average measurement for the activity and subject
+fBodyGyro.meanFreq...Y :average measurement for the activity and subject
+fBodyGyro.meanFreq...Z :average measurement for the activity and subject
+fBodyAccMag.mean.. :average measurement for the activity and subject
+fBodyAccMag.std.. :average measurement for the activity and subject
+fBodyAccMag.meanFreq.. :average measurement for the activity and subject
+fBodyBodyAccJerkMag.mean.. :average measurement for the activity and subject
+fBodyBodyAccJerkMag.std.. :average measurement for the activity and subject
+fBodyBodyAccJerkMag.meanFreq.. :average measurement for the activity and subject
+fBodyBodyGyroMag.mean.. :average measurement for the activity and subject
+fBodyBodyGyroMag.std.. :average measurement for the activity and subject
+fBodyBodyGyroMag.meanFreq.. :average measurement for the activity and subject
+fBodyBodyGyroJerkMag.mean.. :average measurement for the activity and subject
+fBodyBodyGyroJerkMag.std.. :average measurement for the activity and subject
+fBodyBodyGyroJerkMag.meanFreq..: average measurement for the activity and subject

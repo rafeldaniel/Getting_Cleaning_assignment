@@ -2,7 +2,7 @@
 
 #Procedure:
 1. Read the features data.set and convert to a vector 
-2. get a list with that contain train and set Y files using getCleanY function
+2. get a list that contain train and set Y files using getCleanY function
 3. use getcleanX function on train and test sets passing the appropiate Y set
 4. row bind both x sets
 5. use mergeSignals passing the x merged set to add all the inertial signals files as columns

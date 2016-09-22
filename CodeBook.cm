@@ -1,55 +1,41 @@
 Procedure:
 
 1.Y files 
-
 1.a For each Y file, read as data.frame using read.table 
-
 1.b rename each number according to the activity name in the activit_labels.txt file
 
-##2.X files 
-
+2.X files 
 2.a Read as data.frame using read.table and features vector as column names 
-
 2.b add the processed Y file as new column called 'activity' 
-
 2.c add a new column called 'set' indication if the data comes from train or test set
 
-##3. Row bind X_test processed file with X_train processed file The data set contains 10299 rows and 564 variables
-##4. Save this data.frame as X_only_complete set
+3. Row bind X_test processed file with X_train processed file The data set contains 10299 rows and 564 variables
+4. Save this data.frame as X_only_complete set
 
-##5.Inertial Signals files 5.a For each Inertial Signal file: 
+5.Inertial Signals files 5.a For each Inertial Signal file: 
 5.a.1 read the test file as data.frame using read.table renaming columns as the original signal name plus meas.1 to meas.128 
 5.a.2 Proceed as as 5.a.1 with the train file 5.a.3 row bind test and train file 
 
-##6.a Add all the Inertial Signals files as new columns. The final dataset contains 1029 rows and 1152 columns (9 signals with 128 measurements each)
+6.a Add all the Inertial Signals files as new columns. The final dataset contains 1029 rows and 1152 columns (9 signals with 128 measurements each)
 
-##7. Add the complete Inertial Signal file as new columns to the X_only_complete set processed in step 3 The final data set contains 10299 rows and 1716 variables
-##8. Save this data set as "complete set"
+7. Add the complete Inertial Signal file as new columns to the X_only_complete set processed in step 3 The final data set contains 10299 rows and 1716 variables
+8. Save this data set as "complete set"
 
-##Summary File 
-##9.On the "complete set" data set (step 7) select activity, subject and the variables that contain "mean" or "std" in the name, 79 variables are selected 9.b Group by activity and subject 9.c summarize all varaibles with the mean function
+Summary File 
+9.On the "complete set" data set (step 7) select activity, subject and the variables that contain "mean" or "std" in the name, 79 variables are selected 9.b Group by activity and subject 9.c summarize all varaibles with the mean function
 
 
-#Summary File variables:
+Summary File variables:
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. 
-
 These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. 
-
 Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. 
-
 Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
-
 Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). 
-
 Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
-
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
-
 These signals were used to estimate variables of the feature vector for each pattern:  
-
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
-
 
 The Sumary file contain the following variables averaged by each activity and subject:
 

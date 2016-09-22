@@ -1,5 +1,15 @@
 # Getting_Cleaning_assignment
 
+#Procedure:
+1. Read the features data.set and convert to a vector 
+2. get a list with that contain train and set Y files using getCleanY function
+3. use getcleanX function on train and test sets passing the appropiate Y set
+4. row bind both x sets
+5. use mergeSignals passing the x merged set to add all the inertial signals files as columns
+6. select names that contain the key words "mean" or "std"
+7. summarise all selected variables using function mean
+8. save the new data set.
+
 #Functions:
 
 ##getActivityName (activities, actnum)
@@ -46,6 +56,4 @@ Get de merged X file and add the Inertial signals files in columns
   
   c. row bind test and train file 
 
-Add all the Inertial Signals files as new columns. The final dataset contains 1029 rows and 1152 columns (9 signals with 128 measurements each)
-
-The resulting data frame can be added to the x data set processed by getclean X function to obtain a complete set with all the data
+Add all the Inertial Signals files as new columns to the x set. The final dataset contains 1029 rows and 1152 columns (9 signals with 128 measurements each)

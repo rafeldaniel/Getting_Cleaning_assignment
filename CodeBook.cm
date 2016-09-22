@@ -1,6 +1,6 @@
-#Procedure:
+Procedure:
 
-##1.Y files 
+1.Y files 
 
 1.a For each Y file, read as data.frame using read.table 
 
